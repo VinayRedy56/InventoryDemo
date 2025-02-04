@@ -11,15 +11,67 @@ annotate MyService.InvHeader with @(
         $Type : 'UI.FieldGroupType',
         Data : [
             {
-                $Type : 'UI.DataField',
-                Label : 'Id',
-                Value : ID,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'Descr',
-                Value : Descr,
-            }
+            $Type : 'UI.DataField',
+            Label : 'Material',
+            Value : Materal,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Description',
+            Value : Descr,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Serial Number',
+            Value : SerialNumber,
+            
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Quantity',
+            Value : Quantity,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'UoM',
+            Value : UoM,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Last Modified Date',
+            Value : LastModified,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Expiration Date',
+            Value : ExpDate,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Tracking Details',
+            Value : TrackingDetails,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Customer',
+            Value : Customer,
+            
+        },
+         {
+            $Type : 'UI.DataField',
+            Label : 'Order Number',
+            Value : OrderNumber,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Status',
+            Value : Status,
+            
+        }
            
         ],
     },
@@ -40,13 +92,42 @@ annotate MyService.InvHeader with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'Id',
-            Value : ID,
+            Label : 'Product Name',
+            Value : Materal,
+            
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Descr',
+            Label : 'Description',
             Value : Descr,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Quantity',
+            Value : Quantity,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Last Modified Date',
+            Value : LastModified,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Expiration Date',
+            Value : ExpDate,
+            
+        },
+        {
+            $Type : 'UI.DataField',
+            Label : 'Tracking Details',
+            Value : TrackingDetails,
+        },
+          {
+            $Type : 'UI.DataField',
+            Label : 'Customer',
+            Value : Customer,
+            
         }
     ],
 );
@@ -54,28 +135,28 @@ annotate MyService.InvHeader with @(
 annotate MyService.InvHeader with @(
     UI.SelectionVariant #SelVarSO: {
         $Type        : 'UI.SelectionVariantType',
-        Text         : 'Sales Orders',
+        Text         : 'All',
         SelectOptions: [{
             $Type       : 'UI.SelectOptionType',
-            PropertyName: ID,
+            PropertyName: StatusCode,
             Ranges      : [{
                 $Type : 'UI.SelectionRangeType',
                 Sign  : #I,
                 Option: #NE,
-                Low   : 0
+                Low   : '03'
             }]
         }]
     },   UI.SelectionVariant #SelVarRO: {
         $Type        : 'UI.SelectionVariantType',
-        Text         : 'Return Orders',
+        Text         : 'In-Transit',
         SelectOptions: [{
             $Type       : 'UI.SelectOptionType',
-            PropertyName: ID,
+            PropertyName: StatusCode,
             Ranges      : [{
                 $Type : 'UI.SelectionRangeType',
                 Sign  : #I,
                 Option: #EQ,
-                Low   : 20
+                Low   : '02'
             }]
         }]
     }

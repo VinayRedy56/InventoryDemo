@@ -1,5 +1,5 @@
-ID;Descr
-10;Order for Nebula
-20;descr3969
-30;descr4277
-40;descr4165
+ID;Materal;Descr;Quantity;UoM;LastModified;ExpDate;TrackingDetails;Customer;Status;OrderNumber;StatusCode;SerialNumber
+10;101231;microscope;1;EA;Sep 5,2024;Sep 5, 2025;bluedart;Apollo;In transit;10002345;02;AE202410
+20;101232;Scanner;1;EA;Sep 5,2024;Sep 5, 2025;bluedart;Apollo;In Stock;10002346;01;SE202409
+30;101233;microscope;1;EA;Sep 5,2024;Sep 5, 2025;bluedart;Jhonson;In transit;10002347;02;AR202502
+40;101234;CT SCanner;1;EA;Sep 5,2024;Sep 5, 2025;bluedart;Apollo;In Stock;10002348;01;AF202304

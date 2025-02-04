@@ -2,7 +2,18 @@ namespace inventory.db;
 
 entity InvHeader {
     key ID : Integer;
-        Descr : String(100);
+        Materal:String(10);
+        Descr : String(30);
+        Quantity:Decimal;
+        UoM:String(5);
+        LastModified:String(30);
+        ExpDate:String(30);
+        TrackingDetails:String(10);
+        Customer:String(10);
+        Status:String(2);
+        OrderNumber:String(10);
+        StatusCode:String(2);
+        SerialNumber:String(10);
         Items : Composition of many InvItems on Items.Order = $self;
 }
 
