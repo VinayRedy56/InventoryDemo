@@ -1,0 +1,175 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.3",
+      "toolsId": "a7b2e37f-83d5-4161-9d91-2c0488a45f6a"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/my/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.132.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "InvHeaderList",
+          "target": "InvHeaderList"
+        },
+        {
+          "pattern": "InvHeader({key}):?query:",
+          "name": "InvHeaderObjectPage",
+          "target": "InvHeaderObjectPage"
+        },
+        {
+          "pattern": "InvHeader({key})/Items({key2}):?query:",
+          "name": "InvItemsObjectPage",
+          "target": "InvItemsObjectPage"
+        }
+      ],
+      "targets": {
+        "InvHeaderList": {
+          "type": "Component",
+          "id": "InvHeaderList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/InvHeader",
+              "variantManagement": "Page",
+              "navigation": {
+                "InvHeader": {
+                  "detail": {
+                    "route": "InvHeaderObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "quickVariantSelection": {
+                      "hideTableTitle": false,
+                      "showCounts": true,
+                      "paths": [
+                          {
+                              "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SelVarSO"
+                          },
+                          {
+                              "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#SelVarRO"
+                          }
+                      ]
+                  }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "InvHeaderObjectPage": {
+          "type": "Component",
+          "id": "InvHeaderObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/InvHeader",
+              "navigation": {
+                "Items": {
+                  "detail": {
+                    "route": "InvItemsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "InvItemsObjectPage": {
+          "type": "Component",
+          "id": "InvItemsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/InvHeader/Items"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
