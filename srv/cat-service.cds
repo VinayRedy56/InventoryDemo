@@ -7,6 +7,11 @@ service MyService {
 }
 
 annotate MyService.InvHeader with @(
+    UI.HeaderInfo :{
+        TypeName:'',
+        TypeNamePlural:'',
+        Title:{Value:Status}
+    },
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
